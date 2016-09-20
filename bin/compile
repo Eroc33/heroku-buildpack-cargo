@@ -15,6 +15,8 @@ source $buildpack_dir/bin/common.sh
 status "Installing rustup"
 curl https://sh.rustup.rs -sSf | sh -s -- -y
 
+PATH="$HOME/.cargo/bin":$PATH
+
 status "Testing if rustup was installed"
 rustup --version
 
