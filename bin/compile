@@ -12,14 +12,8 @@ buildpack_dir=$(cd $(dirname $0); cd ..; pwd)
 # Load some convenience functions like status(), echo(), and indent()
 source $buildpack_dir/bin/common.sh
 
-status "Installing rust and cargo"
-curl -O http://people.mozilla.org/~acrichton/rust-0.12.0-pre-x86_64-unknown-linux-gnu.tar.gz
-curl -O http://static.rust-lang.org/cargo-dist/cargo-nightly-linux.tar.gz
-
-tar xf rust-0.12.0-pre-x86_64-unknown-linux-gnu.tar.gz
-tar xf cargo-nightly-linux.tar.gz
-./rust-0.12.0-pre-x86_64-unknown-linux-gnu/install.sh
-./cargo-nightly/install.sh
+status "Installing rustup"
+curl https://sh.rustup.rs -sSf | sh -s -- --default-toolchain nightly
 
 status "Testing if rust was installed"
 rustc --version
