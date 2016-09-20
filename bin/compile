@@ -31,4 +31,4 @@ cargo --version
 cd $build_dir
 
 status "Building app"
-cargo build
+cargo build --release
