@@ -21,8 +21,8 @@ status "Testing if rustup was installed"
 rustup --version
 
 status "Installing toolchain"
-rustup toolchain install nightly
-rustup default nightly
+rustup toolchain install nightly-2016-09-15
+rustup default nightly-2016-09-15
 
 status "Testing if rust was installed"
 rustc --version
