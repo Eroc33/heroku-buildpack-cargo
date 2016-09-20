@@ -13,7 +13,14 @@ buildpack_dir=$(cd $(dirname $0); cd ..; pwd)
 source $buildpack_dir/bin/common.sh
 
 status "Installing rustup"
-curl https://sh.rustup.rs -sSf | sh -s -- --default-toolchain nightly -y
+curl https://sh.rustup.rs -sSf | sh -s -- -y
+
+status "Testing if rustup was installed"
+rustup --version
+
+status "Installing toolchain"
+rustup toolchain install nightly
+rustup default nightly
 
 status "Testing if rust was installed"
 rustc --version
